@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lista de Heróis - Mobile Legends</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #2b2d42;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 8px;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    .hero-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .hero {
+      width: 150px;
+      text-align: center;
+      background-color: #f9f9f9;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    .hero:hover {
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+      transform: translateY(-3px);
+    }
+    .hero img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+    .hero-name {
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Lista de Heróis - Mobile Legends</h1>
+  </header>
+  <div class="container">
+    <div class="hero-list" id="heroList"></div>
+  </div>
+
+  <script>
+    const heroes = [
+      "Akai", "Aamon", "Alucard", "Angela", "Argus", "Aurora", "Balmond", "Beatrix",
+      "Bruno", "Chou", "Cyclops", "Diggie", "Esmeralda", "Estes", "Eudora", "Fanny",
+      "Franco", "Freya", "Gord", "Granger", "Grock", "Guinevere", "Harley", "Hayabusa",
+      "Hylos", "Jawhead", "Johnson", "Kagura", "Karina", "Lancelot", "Layla", "Lesley",
+      "Ling", "Lolita", "Lunox", "Masha", "Martis", "Miya", "Moskov", "Natalia", "Odette",
+      "Paquito", "Pharsa", "Roger", "Ruby", "Saber", "Selena", "Silvanna", "Sun",
+      "Tigreal", "Valentina", "Vexana", "Wanwan", "Xavier", "Yve", "Yu Zhong", "Zilong"
+    ];
+
+    const heroList = document.getElementById("heroList");
+
+    heroes.forEach(hero => {
+      const heroDiv = document.createElement("div");
+      heroDiv.className = "hero";
+
+      const img = document.createElement("img");
+      const fileName = hero.toLowerCase().replace(/ /g, "-").replace(/'/g, "");
+      img.src = imagens/${fileName}.png;  // Usa .png como solicitado
+      img.alt = Imagem do herói ${hero};
+      img.onerror = () => {
+        img.src = "https://via.placeholder.com/150x120?text=No+Image";
+      };
+
+      const name = document.createElement("div");
+      name.className = "hero-name";
+      name.textContent = hero;
+
+      heroDiv.appendChild(img);
+      heroDiv.appendChild(name);
+
+      heroList.appendChild(heroDiv);
+    });
+  </script>
+</body>
+</html>
